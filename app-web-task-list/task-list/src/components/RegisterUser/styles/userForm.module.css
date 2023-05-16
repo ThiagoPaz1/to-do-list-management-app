@@ -1,0 +1,15 @@
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+}
+
+.containerButtonRegister {
+  width: 15rem;
+  margin-top: 1rem;
+}
+
+.buttonRegister {
+  font-weight: bolder;
+}

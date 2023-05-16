@@ -1,0 +1,17 @@
+.containerProfile {
+  align-self: flex-end;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  border: 1px #1976D2 solid;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.userName {
+  margin-right: 0.5rem;
+  color: black;
+}
+
+.logoutMenuOption {
+  margin-left: 0.75rem;
+}
