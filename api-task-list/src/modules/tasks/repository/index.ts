@@ -67,16 +67,16 @@ class TaskRepository {
       .ref(`users/${userId}/tasks`)
       .query()
       .get()
-      const tasks: GetTaskDto[] = [...tasksData.getValues()] as GetTaskDto[]
-      
-      if (title && !date) {
-        filteredTasks = tasks.filter((el, i) => tasks[i].title.toLowerCase().includes(title))
+    const tasks: GetTaskDto[] = [...tasksData.getValues()] as GetTaskDto[]
 
-        return filteredTasks
+    if (title && !date) {
+      filteredTasks = tasks.filter((el, i) => tasks[i].title.toLowerCase().includes(title))
+
+      return filteredTasks
     }
 
-    if (!title?.length && date?.length) {
-      filteredTasks = tasks.filter(i => dateFormat(i.created_at) === dateFormat(i.created_at))
+    if (!title && date) {
+      filteredTasks = tasks.filter(i => dateFormat(i.created_at) === date)
 
       return filteredTasks
     }
@@ -85,7 +85,7 @@ class TaskRepository {
       filteredTasks =
         tasks
           .filter((_el, i) => tasks[i].title.toLowerCase().includes(title))
-          .filter(i => dateFormat(i.created_at) === dateFormat(i.created_at))
+          .filter(i => dateFormat(i.created_at) === date)
 
       return filteredTasks
     }
@@ -110,7 +110,7 @@ class TaskRepository {
     const path = `users/${userId}/tasks/${data.id}`
     const taskData = await tasksDB.ref(path).get()
     const task = taskData.val() as GetTaskDto
-     
+
     await tasksDB.ref(path).update({
       title: data.title ? data.title : task.title,
       description: data.description ? data.description : task.description
@@ -118,7 +118,7 @@ class TaskRepository {
 
     const updatedTaskData = await tasksDB.ref(path).get()
     const updatedTask = updatedTaskData.val() as GetTaskDto
-  
+
     return {
       id: updatedTask.id,
       title: updatedTask.title,
