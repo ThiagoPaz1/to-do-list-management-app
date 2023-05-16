@@ -1,9 +1,0 @@
-.containerHome {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-}
-
-.containerHome h1 {
-  margin-top: 3rem;
-}
