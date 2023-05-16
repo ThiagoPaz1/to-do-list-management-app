@@ -14,7 +14,7 @@
 
 ## Pronto! Agora a aplicação esta completa e pronto para uso 🚀🚀🚀
 
-## Observaçôes:
+## Observações:
 ### 1 - Você pode acessar o banco de dados, a parti de http://localhost:5757/, os dados de acesso são:
 - Nome do banco: tasksdb
 - Nome do usuário: admin
